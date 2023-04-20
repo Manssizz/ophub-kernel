@@ -8812,3 +8812,10 @@ CONFIG_ARCH_USE_MEMTEST=y
 CONFIG_MEMTEST=y
 # end of Kernel Testing and Coverage
 # end of Kernel hacking
+
+### add by manssizz
+#
+# MDM 9x25
+#
+CONFIG_QC_MODEM=y
+CONFIG_USB_USBNET=y
