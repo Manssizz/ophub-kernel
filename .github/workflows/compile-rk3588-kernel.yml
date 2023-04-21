@@ -51,6 +51,7 @@ on:
         type: choice
         options:
           - -rk3588
+          - -rk3588-lowlatency
           - -yourname
       kernel_config:
         description: "Set the path of kernel .config"
