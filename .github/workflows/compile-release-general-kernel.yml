@@ -55,12 +55,12 @@ on:
       kernel_sign:
         description: "Set the kernel custom signature"
         required: false
-        default: "-ophub"
+        default: "-dedemyth"
         type: choice
         options:
           - -ophub
           - -happy-new-year
-          - -yourname
+          - -dedemyth
       kernel_config:
         description: "Set the path of kernel .config"
         required: false
@@ -71,7 +71,7 @@ on:
           - false
 
 env:
-  TZ: America/New_York
+  TZ: Asia/Jakarta
 
 jobs:
   build:
