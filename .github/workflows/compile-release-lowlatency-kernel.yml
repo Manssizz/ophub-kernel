@@ -1,10 +1,11 @@
 #==========================================================================
-# Description: Compile release general kernel
+# Description: Compile release low latency kernel
 # Copyright (C) 2021 https://github.com/unifreq/openwrt_packit
 # Copyright (C) 2021 https://github.com/ophub/kernel
+# Copyright (C) 2024 https://github.com/manssizz/ophub-kernel
 #==========================================================================
 
-name: Compile release general kernel
+name: Compile release low latency kernel
 on: 
   repository_dispatch:
   schedule:
@@ -72,7 +73,7 @@ on:
       kernel_sign:
         description: "Set the kernel custom signature"
         required: false
-        default: "-cendrawasih"
+        default: "-cendrawasih-low-latency"
         type: choice
         options:
           - -ophub
@@ -86,15 +87,16 @@ on:
           - -autumn-harvesting
           - -winter-storing
           - -cendrawasih
+          - -cendrawasih-low-latency
           - -dedemyth
           - -yourname
       kernel_config:
         description: "Set the path of kernel .config"
         required: false
-        default: "kernel-config/release/general"
+        default: "kernel-config/release/lowlatency"
         type: choice
         options:
-          - kernel-config/release/general
+          - kernel-config/release/lowlatency
           - false
 
 env:
@@ -178,7 +180,7 @@ jobs:
         uses: ncipollo/release-action@main
         if: ${{ env.PACKAGED_STATUS }} == 'success' && !cancelled()
         with:
-          tag: kernel_stable
+          tag: kernel_low-latency
           artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
           allowUpdates: true
           token: ${{ secrets.UPLOAD_TOKEN }}
